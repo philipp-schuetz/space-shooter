@@ -8,7 +8,7 @@ import java.util.List;
 public class Enemy extends Actor {
     GreenfootImage image;
     private int speed;
-    private final int attackCooldownMax = 20;
+    private final int attackCooldownMax = 40;
     private int attackCooldown = 0;
     private int damage;
     private int hp;
@@ -50,6 +50,7 @@ public class Enemy extends Actor {
         }
         ShipActor ship = getIntersectingObjects(ShipActor.class).get(0);
         ship.setHp(ship.getHp() - damage);
+        hp /= 2;
         attackCooldown = attackCooldownMax;
     }
 
