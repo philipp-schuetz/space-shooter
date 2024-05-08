@@ -2,6 +2,8 @@ import greenfoot.Actor;
 import greenfoot.Greenfoot;
 import greenfoot.GreenfootImage;
 
+import java.util.List;
+
 public class Bullet extends Actor {
     GreenfootImage image;
     private int damage = 0;
@@ -21,10 +23,21 @@ public class Bullet extends Actor {
         this.turn(90);
     }
 
+    private void attack() {
+        List<Enemy> enemies = getIntersectingObjects(Enemy.class);
+        if (enemies.isEmpty()) {
+            return;
+        }
+        Enemy enemy = getIntersectingObjects(Enemy.class).get(0);
+        enemy.setHp(enemy.getHp() - damage);
+        getWorld().removeObject(this);
+    }
+
     @Override
     public void act() {
         setLocation(getX() + speed, getY());
-        if (isAtEdge()) {
+        attack();
+        if (getWorld() != null && isAtEdge()) {
             getWorld().removeObject(this);
         }
     }
