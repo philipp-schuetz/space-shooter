@@ -19,6 +19,10 @@ public class ShipActor extends Actor {
         return hp;
     }
 
+    public void setHp(int value) {
+        this.hp = value;
+    }
+
     private void moveSelf() {
         int newX = 0;
         int newY = 0;
