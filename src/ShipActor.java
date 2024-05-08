@@ -49,12 +49,19 @@ public class ShipActor extends Actor {
         getWorld().addObject(new Bullet(tier), getX() + image.getHeight(), getY());
         shootCooldown = shootCooldownMax;
     }
+    private void renderGameOver() {
+        getWorld().showText("Game Over", getWorld().getWidth()/2, 150);
+    }
 
     @Override
     public void act() {
         moveSelf();
         if (Greenfoot.isKeyDown("space")) {
             shoot();
+        }
+        if (hp == 0) {
+            renderGameOver();
+            Greenfoot.stop();
         }
     }
 }
