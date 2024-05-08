@@ -2,6 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import ui.HpUi;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * This subclass is just an example. You can delete it or change the code if you want.
@@ -18,7 +19,6 @@ public class SpaceWorld extends World
     }
 
     public void createSpaceWorld() {
-        addObject(new Meteor(), 10, 10);
         player = new ShipActor(1);
         addObject(player, 100, getHeight()/2);
     }
@@ -32,7 +32,17 @@ public class SpaceWorld extends World
         }
     }
 
+    public void addEnemies() {
+        Random rand = new Random();
+        int objGenerated = rand.nextInt(80);
+        int spawnY = rand.nextInt(getHeight()-300)+150;
+        if (objGenerated == 0) {
+            addObject(new Enemy(1), getWidth()-100, spawnY);
+        }
+    }
+
     public void act() {
         renderHpUi();
+        addEnemies();
     }
 }
