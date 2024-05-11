@@ -8,8 +8,6 @@ import java.util.List;
 public class Enemy extends Actor {
     GreenfootImage image;
     private int speed;
-    private final int attackCooldownMax = 40;
-    private int attackCooldown = 0;
     private int damage;
     private int hp;
 
@@ -40,18 +38,13 @@ public class Enemy extends Actor {
     }
 
     private void attack() {
-        if (attackCooldown > 0) {
-            attackCooldown--;
-            return;
-        }
         List<Player> ships = getIntersectingObjects(Player.class);
         if (ships.isEmpty()) {
             return;
         }
-        Player ship = getIntersectingObjects(Player.class).get(0);
-        ship.setHp(ship.getHp() - damage);
-        hp /= 2;
-        attackCooldown = attackCooldownMax;
+        Player player = getIntersectingObjects(Player.class).get(0);
+        player.setHp(player.getHp() - damage);
+        getWorld().removeObject(this);
     }
 
     @Override
