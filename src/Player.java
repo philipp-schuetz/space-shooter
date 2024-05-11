@@ -9,26 +9,12 @@ public class Player extends Actor {
     private final int hpMax = 4;
     private int hp = hpMax;
     private int tier;
-
+    private int tierMax = 3;
     private int score;
 
     public Player(int tier) {
-        if (tier == 1) {
-            image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_blue.png");
-            this.speed = 6;
-            this.shootCooldownMax = 8;
-        } else if (tier == 2) {
-            image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_green.png");
-            this.speed = 8;
-            this.shootCooldownMax = 10;
-        } else if (tier == 3) {
-            image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_red.png");
-            this.speed = 10;
-            this.shootCooldownMax = 12;
-        }
-        setImage(image);
         this.turn(90);
-        this.tier = tier;
+        setTier(tier);
     }
 
     public int getHp() {
@@ -37,6 +23,15 @@ public class Player extends Actor {
 
     public void setHp(int value) {
         this.hp = value;
+    }
+
+    public int getTier() {
+        return this.tier;
+    }
+    public void setTier(int value) {
+        if (value <= tierMax) {
+            this.tier = value;
+        }
     }
 
     public int getScore() { return score; }
@@ -67,12 +62,29 @@ public class Player extends Actor {
         getWorld().addObject(new Bullet(tier), getX() + image.getHeight(), getY());
         shootCooldown = shootCooldownMax;
     }
+    private void evaluateTier() {
+        if (tier == 1) {
+            image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_blue.png");
+            this.speed = 6;
+            this.shootCooldownMax = 8;
+        } else if (tier == 2) {
+            image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_green.png");
+            this.speed = 8;
+            this.shootCooldownMax = 10;
+        } else if (tier == 3) {
+            image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_red.png");
+            this.speed = 10;
+            this.shootCooldownMax = 12;
+        }
+        setImage(image);
+    }
     private void renderGameOver() {
         getWorld().showText("Game Over", getWorld().getWidth()/2, 150);
     }
 
     @Override
     public void act() {
+        evaluateTier();
         score += 1;
         moveSelf();
         if (Greenfoot.isKeyDown("space")) {
