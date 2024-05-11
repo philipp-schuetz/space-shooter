@@ -39,6 +39,17 @@ public class SpaceWorld extends World
         }
     }
 
+    public void addUpgrades() {
+        Random rand = new Random();
+        int objGenerated = rand.nextInt(2000);
+        int spawnY = rand.nextInt(getHeight()-300)+150;
+        if (objGenerated == 0) {
+            addObject(new Upgrade(UpgradeType.HP), getWidth()-100, spawnY);
+        }else if (objGenerated == 1) {
+            addObject(new Upgrade(UpgradeType.TIER), getWidth()-100, spawnY);
+        }
+    }
+
     private void renderPlayerScore() {
         int playerScore = player.getScore();
         LinkedList<Integer> result = new LinkedList<>();
@@ -57,6 +68,7 @@ public class SpaceWorld extends World
     public void act() {
         renderHpUi();
         addEnemies();
+        addUpgrades();
         renderPlayerScore();
     }
 }
