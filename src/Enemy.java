@@ -44,11 +44,11 @@ public class Enemy extends Actor {
             attackCooldown--;
             return;
         }
-        List<ShipActor> ships = getIntersectingObjects(ShipActor.class);
+        List<Player> ships = getIntersectingObjects(Player.class);
         if (ships.isEmpty()) {
             return;
         }
-        ShipActor ship = getIntersectingObjects(ShipActor.class).get(0);
+        Player ship = getIntersectingObjects(Player.class).get(0);
         ship.setHp(ship.getHp() - damage);
         hp /= 2;
         attackCooldown = attackCooldownMax;

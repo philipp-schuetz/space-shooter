@@ -1,7 +1,7 @@
 import greenfoot.*;
 
 
-public class ShipActor extends Actor {
+public class Player extends Actor {
     GreenfootImage image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_blue.png");
     private final int speed = 6;
     private final int shootCooldownMax = 10;
@@ -9,7 +9,7 @@ public class ShipActor extends Actor {
     private int hp = 4;
     private int tier;
 
-    public ShipActor(int tier) {
+    public Player(int tier) {
         setImage(image);
         this.turn(90);
         this.tier = tier;

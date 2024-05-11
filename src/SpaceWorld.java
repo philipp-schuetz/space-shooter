@@ -1,16 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 import ui.HpUi;
 
 import java.util.List;
 import java.util.Random;
 
-/**
- * This subclass is just an example. You can delete it or change the code if you want.
- * It's not necessary for the scrolling system.
- */
 public class SpaceWorld extends World
 {
-    ShipActor player;
+    Player player;
     
     public SpaceWorld() {
         super(1200, 580, 1);
@@ -19,7 +15,7 @@ public class SpaceWorld extends World
     }
 
     public void createSpaceWorld() {
-        player = new ShipActor(1);
+        player = new Player(1);
         addObject(player, 100, getHeight()/2);
     }
     private void renderHpUi() {
