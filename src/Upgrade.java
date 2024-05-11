@@ -7,6 +7,7 @@ public class Upgrade extends Actor {
     private final UpgradeType type;
     private final int hpAdd = 1;
     private GreenfootImage image;
+    private final int speed = 4;
     public Upgrade(UpgradeType type) {
         if (type == UpgradeType.HP) {
             image = new GreenfootImage("images/PNG/Power-ups/pill_red.png");
@@ -27,6 +28,22 @@ public class Upgrade extends Actor {
             } else if (type == UpgradeType.TIER) {
                 player.setTier(player.getTier()+1);
             }
+            getWorld().removeObject(this);
+        }
+    }
+
+    private void moveSelf() {
+        setLocation(getX() - speed, getY());
+        if (isAtEdge()) {
+            getWorld().removeObject(this);
+        }
+    }
+
+    @Override
+    public void act() {
+        moveSelf();
+        if (getWorld() != null) {
+            applyUpgrade();
         }
     }
 }
