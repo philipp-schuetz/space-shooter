@@ -3,15 +3,29 @@ import greenfoot.*;
 
 public class Player extends Actor {
     GreenfootImage image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_blue.png");
-    private final int speed = 6;
-    private final int shootCooldownMax = 10;
+    private int speed = 0;
+    private int shootCooldownMax = 0;
     private int shootCooldown = 0;
-    private int hp = 4;
+    private final int hpMax = 4;
+    private int hp = hpMax;
     private int tier;
 
     private int score;
 
     public Player(int tier) {
+        if (tier == 1) {
+            image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_blue.png");
+            this.speed = 6;
+            this.shootCooldownMax = 8;
+        } else if (tier == 2) {
+            image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_green.png");
+            this.speed = 8;
+            this.shootCooldownMax = 10;
+        } else if (tier == 3) {
+            image = new GreenfootImage("images/PNG/PlayerShip/playerShip1_red.png");
+            this.speed = 10;
+            this.shootCooldownMax = 12;
+        }
         setImage(image);
         this.turn(90);
         this.tier = tier;
