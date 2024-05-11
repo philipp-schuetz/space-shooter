@@ -1,6 +1,8 @@
 import greenfoot.*;
+import ui.DigitIcon;
 import ui.HpUi;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -37,8 +39,24 @@ public class SpaceWorld extends World
         }
     }
 
+    private void renderPlayerScore() {
+        int playerScore = player.getScore();
+        LinkedList<Integer> result = new LinkedList<>();
+        while (playerScore > 0) {
+            result.push(playerScore % 10);
+            playerScore /= 10;
+        }
+        removeObjects(getObjects(DigitIcon.class));
+        int xPos = 50;
+        for (int digit: result) {
+            addObject(new DigitIcon(digit), xPos, 50);
+            xPos += 25;
+        }
+    }
+
     public void act() {
         renderHpUi();
         addEnemies();
+        renderPlayerScore();
     }
 }

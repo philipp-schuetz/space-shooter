@@ -9,6 +9,8 @@ public class Player extends Actor {
     private int hp = 4;
     private int tier;
 
+    private int score;
+
     public Player(int tier) {
         setImage(image);
         this.turn(90);
@@ -22,6 +24,8 @@ public class Player extends Actor {
     public void setHp(int value) {
         this.hp = value;
     }
+
+    public int getScore() { return score; }
 
     private void moveSelf() {
         int newX = 0;
@@ -55,6 +59,7 @@ public class Player extends Actor {
 
     @Override
     public void act() {
+        score += 1;
         moveSelf();
         if (Greenfoot.isKeyDown("space")) {
             shoot();
