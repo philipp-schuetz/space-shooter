@@ -1,4 +1,5 @@
 import greenfoot.*;
+import ui.GameOver;
 
 
 public class Player extends Actor {
@@ -22,6 +23,9 @@ public class Player extends Actor {
     }
 
     public void setHp(int value) {
+        if (value < this.hp) {
+            Greenfoot.playSound("sounds/minecraft_dmg.mp3");
+        }
         this.hp = value;
     }
 
@@ -59,6 +63,7 @@ public class Player extends Actor {
             shootCooldown--;
             return;
         }
+        Greenfoot.playSound("sounds/bow_shoot.mp3");
         getWorld().addObject(new Bullet(tier), getX() + image.getHeight(), getY());
         shootCooldown = shootCooldownMax;
     }
@@ -79,7 +84,7 @@ public class Player extends Actor {
         setImage(image);
     }
     private void renderGameOver() {
-        getWorld().showText("Game Over", getWorld().getWidth()/2, 150);
+        getWorld().addObject(new GameOver(1000), getWorld().getWidth()/2, 150);
     }
 
     @Override

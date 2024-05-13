@@ -44,6 +44,7 @@ public class Enemy extends Actor {
         }
         Player player = getIntersectingObjects(Player.class).get(0);
         player.setHp(player.getHp() - damage);
+        Greenfoot.playSound("sounds/minecraft-tnt-explosion.mp3");
         getWorld().removeObject(this);
     }
 
@@ -55,6 +56,7 @@ public class Enemy extends Actor {
         }
         if (hp == 0) {
             getWorld().removeObject(this);
+            Greenfoot.playSound("sounds/minecraft-tnt-explosion.mp3");
         }
     }
 }

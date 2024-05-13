@@ -1,5 +1,7 @@
 import greenfoot.Actor;
+import greenfoot.Greenfoot;
 import greenfoot.GreenfootImage;
+import greenfoot.GreenfootSound;
 
 import java.util.List;
 
@@ -22,11 +24,12 @@ public class Upgrade extends Actor {
         List<Player> playerList = getIntersectingObjects(Player.class);
         if (playerList.size() == 1) {
             Player player = playerList.get(0);
-
             if (type == UpgradeType.HP) {
                 player.setHp(player.getHp()+hpAdd);
+                Greenfoot.playSound("sounds/minecraft-eating.mp3");
             } else if (type == UpgradeType.TIER) {
                 player.setTier(player.getTier()+1);
+                Greenfoot.playSound("sounds/minecraft-levelup.mp3");
             }
             getWorld().removeObject(this);
         }
