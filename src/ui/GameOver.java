@@ -2,9 +2,6 @@ package ui;
 
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
-
-import java.awt.*;
-import java.io.InputStream;
 import java.util.LinkedList;
 
 public class GameOver extends Actor {
@@ -12,7 +9,7 @@ public class GameOver extends Actor {
 
     public GameOver(int score) {
         this.score = score;
-        GreenfootImage image = new GreenfootImage("images/PNG/UI/game-over.png");
+        GreenfootImage image = new GreenfootImage("images/PNG/UI/game-over-big.png");
         setImage(image);
 
         LinkedList<Integer> result = new LinkedList<>();
