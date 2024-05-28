@@ -20,10 +20,12 @@ public class GameOver extends Actor {
             result.push(score % 10);
             score /= 10;
         }
-        int xPos = getX();
-        for (int digit : result) {
-            getWorld().addObject(new DigitIcon(digit), xPos, getY() + 50);
-            xPos += 25;
+        if (getWorld() != null) {
+            int xPos = getX();
+            for (int digit : result) {
+                getWorld().addObject(new DigitIcon(digit), xPos, getY() + 50);
+                xPos += 25;
+            }
         }
     }
 }
