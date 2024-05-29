@@ -12,7 +12,7 @@ public class SpaceWorld extends World
     
     public SpaceWorld() {
         super(1200, 580, 1);
-        setBackground(new GreenfootImage("images/Backgrounds/blue.png"));
+        setBackground(new GreenfootImage("images/backgrounds/blue.png"));
         createSpaceWorld();
     }
 

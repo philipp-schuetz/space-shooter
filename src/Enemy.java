@@ -17,17 +17,17 @@ public class Enemy extends Actor {
             speed = 4;
             damage = 1;
             hp = 6;
-            image = new GreenfootImage("images/PNG/Enemies/enemyBlue3.png");
+            image = new GreenfootImage("images/PNG/enemies/enemyBlue3.png");
         } else if (tier == 2) {
             speed = 5;
             damage = 2;
             hp = 8;
-            image = new GreenfootImage("images/PNG/Enemies/enemyGreen3.png");
+            image = new GreenfootImage("images/PNG/enemies/enemyGreen3.png");
         } else if (tier == 3) {
             speed = 6;
             damage = 4;
             hp = 10;
-            image = new GreenfootImage("images/PNG/Enemies/enemyRed3.png");
+            image = new GreenfootImage("images/PNG/enemies/enemyRed3.png");
         }
         setImage(image);
     }
