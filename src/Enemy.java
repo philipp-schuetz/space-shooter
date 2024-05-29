@@ -64,7 +64,7 @@ public class Enemy extends Actor {
         if (getWorld() != null) {
             attack();
         }
-        if (hp == 0) {
+        if (hp < 1) {
             getWorld().removeObject(this);
             Greenfoot.playSound("sounds/minecraft-tnt-explosion.mp3");
         }
