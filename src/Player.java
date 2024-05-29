@@ -95,7 +95,7 @@ public class Player extends Actor {
         if (Greenfoot.isKeyDown("space")) {
             shoot();
         }
-        if (hp == 0) {
+        if (hp < 1) {
             renderGameOver();
             Greenfoot.stop();
         }
