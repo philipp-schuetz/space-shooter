@@ -33,9 +33,14 @@ public class SpaceWorld extends World
     public void addEnemies() {
         Random rand = new Random();
         int objGenerated = rand.nextInt(80);
+        int spawnX = getWidth()-100;
         int spawnY = rand.nextInt(getHeight()-300)+150;
         if (objGenerated == 0) {
-            addObject(new Enemy(1), getWidth()-100, spawnY);
+            Enemy enemy = new Enemy(1);
+            List<Enemy> objectsAtSpawnPos = this.getObjectsAt(spawnX, spawnY, Enemy.class);
+            if (objectsAtSpawnPos.isEmpty()) {
+                addObject(enemy, spawnX, spawnY);
+            }
         }
     }
 
