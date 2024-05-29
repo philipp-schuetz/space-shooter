@@ -36,7 +36,13 @@ public class SpaceWorld extends World
         int spawnX = getWidth()-100;
         int spawnY = rand.nextInt(getHeight()-300)+150;
         if (objGenerated == 0) {
-            Enemy enemy = new Enemy(1);
+            int enemyTier = 1;
+            if (player.getScore() > 1000) {
+                enemyTier = 2;
+            } else if (player.getScore() > 2000) {
+                enemyTier = 3;
+            }
+            Enemy enemy = new Enemy(enemyTier);
             List<Enemy> objectsAtSpawnPos = this.getObjectsAt(spawnX, spawnY, Enemy.class);
             if (objectsAtSpawnPos.isEmpty()) {
                 addObject(enemy, spawnX, spawnY);
