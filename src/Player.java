@@ -10,7 +10,7 @@ public class Player extends Actor {
     private final int hpMax = 4;
     private int hp = hpMax;
     private int tier;
-    private int tierMax = 3;
+    private final int tierMax = 3;
     private int score;
 
     public Player(int tier) {
