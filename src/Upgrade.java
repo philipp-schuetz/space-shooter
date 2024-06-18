@@ -12,9 +12,9 @@ public class Upgrade extends Actor {
     private final int speed = 4;
     public Upgrade(UpgradeType type) {
         if (type == UpgradeType.HP) {
-            image = new GreenfootImage("images/PNG/powerUps/pill_red.png");
+            image = new GreenfootImage("images/powerUps/pill_red.png");
         } else if (type == UpgradeType.TIER) {
-            image = new GreenfootImage("images/PNG/powerUps/bolt_gold.png");
+            image = new GreenfootImage("images/powerUps/bolt_gold.png");
         }
         this.type = type;
         setImage(image);

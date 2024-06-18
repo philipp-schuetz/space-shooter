@@ -7,11 +7,8 @@ public class DigitIcon extends Actor {
     GreenfootImage image;
 
     public DigitIcon(int digit) {
-        if (digit < 0 && digit > 9) {
-            image = new GreenfootImage("images/PNG/ui/numeralX.png");
-        } else {
-            image = new GreenfootImage("images/PNG/ui/numeral" + digit + ".png");
-        }
+        image = new GreenfootImage("images/ui/numeral" + digit + ".png");
+        System.out.println(digit);
         setImage(image);
     }
 }

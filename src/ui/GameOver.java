@@ -9,7 +9,7 @@ public class GameOver extends Actor {
 
     public GameOver(int score) {
         this.score = score;
-        GreenfootImage image = new GreenfootImage("images/PNG/ui/game-over-big.png");
+        GreenfootImage image = new GreenfootImage("images/ui/game-over-big.png");
         setImage(image);
 
         LinkedList<Integer> result = new LinkedList<>();

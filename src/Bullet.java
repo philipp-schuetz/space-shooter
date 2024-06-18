@@ -10,13 +10,13 @@ public class Bullet extends Actor {
     private int speed = 16;
     public Bullet(int tier) {
         if (tier == 1) {
-            image = new GreenfootImage("images/PNG/lasers/laserBlue02.png");
+            image = new GreenfootImage("images/lasers/laserBlue02.png");
             damage = 1;
         } else if (tier == 2) {
-            image = new GreenfootImage("images/PNG/lasers/laserGreen02.png");
+            image = new GreenfootImage("images/lasers/laserGreen02.png");
             damage = 2;
         } else if (tier == 3) {
-            image = new GreenfootImage("images/PNG/lasers/laserRed02.png");
+            image = new GreenfootImage("images/lasers/laserRed02.png");
             damage = 3;
         }
         setImage(image);

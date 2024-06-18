@@ -3,7 +3,7 @@ import ui.GameOver;
 
 
 public class Player extends Actor {
-    GreenfootImage image = new GreenfootImage("images/PNG/playerShip/playerShip1_blue.png");
+    GreenfootImage image = new GreenfootImage("images/playerShip/playerShip1_blue.png");
     private int speed = 0;
     private int shootCooldownMax = 0;
     private int shootCooldown = 0;
@@ -69,15 +69,15 @@ public class Player extends Actor {
     }
     private void evaluateTier() {
         if (tier == 1) {
-            image = new GreenfootImage("images/PNG/playerShip/playerShip1_blue.png");
+            image = new GreenfootImage("images/playerShip/playerShip1_blue.png");
             this.speed = 6;
             this.shootCooldownMax = 8;
         } else if (tier == 2) {
-            image = new GreenfootImage("images/PNG/playerShip/playerShip1_green.png");
+            image = new GreenfootImage("images/playerShip/playerShip1_green.png");
             this.speed = 8;
             this.shootCooldownMax = 10;
         } else if (tier == 3) {
-            image = new GreenfootImage("images/PNG/playerShip/playerShip1_red.png");
+            image = new GreenfootImage("images/playerShip/playerShip1_red.png");
             this.speed = 10;
             this.shootCooldownMax = 12;
         }
