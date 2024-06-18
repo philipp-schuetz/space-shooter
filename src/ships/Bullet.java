@@ -1,3 +1,5 @@
+package ships;
+
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
 

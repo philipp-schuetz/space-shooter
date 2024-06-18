@@ -1,3 +1,5 @@
+package ships;
+
 import greenfoot.*;
 import ui.GameOver;
 

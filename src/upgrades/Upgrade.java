@@ -1,6 +1,9 @@
+package upgrades;
+
 import greenfoot.Actor;
 import greenfoot.Greenfoot;
 import greenfoot.GreenfootImage;
+import ships.Player;
 
 import java.util.List;
 

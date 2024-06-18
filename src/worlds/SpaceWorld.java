@@ -1,6 +1,12 @@
+package worlds;
+
 import greenfoot.*;
+import ships.Enemy;
+import ships.Player;
 import ui.DigitIcon;
 import ui.HpUi;
+import upgrades.Upgrade;
+import upgrades.UpgradeType;
 
 import java.util.LinkedList;
 import java.util.List;
