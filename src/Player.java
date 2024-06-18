@@ -84,7 +84,7 @@ public class Player extends Actor {
         setImage(image);
     }
     private void renderGameOver() {
-        getWorld().addObject(new GameOver(1000), getWorld().getWidth()/2, 150);
+        getWorld().addObject(new GameOver(), getWorld().getWidth()/2, 150);
     }
 
     @Override

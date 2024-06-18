@@ -8,7 +8,6 @@ public class DigitIcon extends Actor {
 
     public DigitIcon(int digit) {
         image = new GreenfootImage("images/ui/numeral" + digit + ".png");
-        System.out.println(digit);
         setImage(image);
     }
 }
